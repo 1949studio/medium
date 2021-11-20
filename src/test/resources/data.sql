@@ -1,0 +1,2 @@
+INSERT INTO users (user_id, username, first_name, last_name, email, password) VALUES (nextval('user_seq'), 'jackptoke3', 'Jack', 'Toke', 'jackptoke@gmail.com', 'q09rua908jfa;sdkfj');
+INSERT INTO users (user_id, username, first_name, last_name, email, password) VALUES (nextval('user_seq'), 'amyrtoke3', 'Amy', 'Toke', 'amytoke@gmail.com', 'poiawjr;laskfjasdf');
