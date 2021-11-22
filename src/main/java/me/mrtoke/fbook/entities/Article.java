@@ -1,12 +1,15 @@
 package me.mrtoke.fbook.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -18,10 +21,15 @@ public class Article {
 	private ArticleGenre genre;
 	private String title;
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	private Writer author;
 	private Date createdDate;
 	private boolean isDraft;
 	private Date publishedDate;
+	// an article is made up of many components
+	//which could be images/text/videos/embedded html
+	@OneToMany(mappedBy="article")
+	private List<Component> components;
 	
 	public Article() {
 		

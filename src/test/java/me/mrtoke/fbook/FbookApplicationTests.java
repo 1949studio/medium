@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import me.mrtoke.fbook.dao.IPostRepository;
-import me.mrtoke.fbook.dao.IUserRepository;
-import me.mrtoke.fbook.entities.User;
+import me.mrtoke.fbook.dao.IMemberRepository;
+import me.mrtoke.fbook.entities.Member;
 
 @SpringBootTest
 //@ContextConfiguration(classes=FbookApplication.class)
@@ -19,17 +18,15 @@ import me.mrtoke.fbook.entities.User;
 class FbookApplicationTests {
 
 	@Autowired
-	IUserRepository userRepo;
+	IMemberRepository userRepo;
 	
-	@Autowired
-	IPostRepository postRepo;
 	
 	@Test
 	void ifNewUserSaved_ThenSuccess() {
-		User newUser = new User("jeremiahtoke", "Jeremiah", "Toke", "jeremiahtoke@gmail.com", "alksdjflaskdj");
-		List<User> users = userRepo.findAll();
+		Member newUser = new Member("jeremiahtoke", "Jeremiah", "Toke", "jeremiahtoke@gmail.com", "alksdjflaskdj");
+		List<Member> users = userRepo.findAll();
 		
-		for( User user : users) {
+		for( Member user : users) {
 			System.out.println(user.getUsername());
 		}
 		

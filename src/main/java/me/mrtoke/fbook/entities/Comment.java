@@ -16,7 +16,7 @@ public class Comment {
 	@SequenceGenerator(name="comment_seq", allocationSize=1)
 	private long id;
 	@ManyToOne
-	private User user;
+	private Member user;
 	@ManyToOne
 	private Article article;
 	private int likesCount;
@@ -27,7 +27,7 @@ public class Comment {
 		
 	}
 
-	public Comment(User user, String content, Date commentedDate) {
+	public Comment(Member user, String content, Date commentedDate) {
 		super();
 		this.user = user;
 		this.content = content;
@@ -43,11 +43,11 @@ public class Comment {
 		this.id = id;
 	}
 
-	public User getUser() {
+	public Member getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Member user) {
 		this.user = user;
 	}
 

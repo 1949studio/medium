@@ -4,16 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Component {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="componen_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="component_seq")
 	@SequenceGenerator(name="component_seq", allocationSize=1)
 	private long id;
 	private CompType compType;
 	private String value;
+	//many components could belong to an article
+	@ManyToOne
+	private Article article;
 	
 	public Component(CompType compType, String value) {
 		super();
